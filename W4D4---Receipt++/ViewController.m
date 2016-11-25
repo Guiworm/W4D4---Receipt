@@ -42,9 +42,9 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	
-	//NSPredicate *predicate = [NSPredicate predicateWithFormat: @"amount > 25", @"receipt."];
-
-	return 1;//[[DataManager sharedInstance] fetchData:dataEntity withPredicate:predicate].count;
+	Tag *tag = (Tag *)[[DataManager sharedInstance] fetchData:@"Tag"][section];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"ANY tags.tagName MATCHES[cd] %@", tag.tagName];
+	return [[DataManager sharedInstance] fetchData:dataEntity withPredicate:predicate].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -52,7 +52,7 @@
 	
 	
 	Tag *tag = (Tag *)[[DataManager sharedInstance] fetchData:@"Tag"][indexPath.section];
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"ALL tags.tagName LIKE[cd] %@", tag.tagName];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"ANY tags.tagName MATCHES[cd] %@", tag.tagName];
 
 	NSArray <Receipt*> *receiptData = [[DataManager sharedInstance] fetchData:dataEntity withPredicate:predicate];
 	
