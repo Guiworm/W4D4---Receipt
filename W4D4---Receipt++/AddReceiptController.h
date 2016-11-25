@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AddReceiptController.h
 //  W4D4---Receipt++
 //
 //  Created by Dylan McCrindle on 2016-11-24.
@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
+@interface AddReceiptController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 @end
-

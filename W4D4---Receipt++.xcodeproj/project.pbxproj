@@ -14,6 +14,8 @@
 		A0D260631DE7447000E45F6D /* W4D4___Receipt__.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0D260611DE7447000E45F6D /* W4D4___Receipt__.xcdatamodeld */; };
 		A0D260651DE7447000E45F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D260641DE7447000E45F6D /* Assets.xcassets */; };
 		A0D260681DE7447000E45F6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D260661DE7447000E45F6D /* LaunchScreen.storyboard */; };
+		A0F292891DE75EAE000210C0 /* AddReceiptController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F292881DE75EAE000210C0 /* AddReceiptController.m */; };
+		A0F2928C1DE770A2000210C0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F2928B1DE770A2000210C0 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		A0D260641DE7447000E45F6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0D260671DE7447000E45F6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0D260691DE7447000E45F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F292871DE75EAE000210C0 /* AddReceiptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReceiptController.h; sourceTree = "<group>"; };
+		A0F292881DE75EAE000210C0 /* AddReceiptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReceiptController.m; sourceTree = "<group>"; };
+		A0F2928A1DE770A2000210C0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A0F2928B1DE770A2000210C0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +70,11 @@
 				A0D260591DE7447000E45F6D /* AppDelegate.m */,
 				A0D2605B1DE7447000E45F6D /* ViewController.h */,
 				A0D2605C1DE7447000E45F6D /* ViewController.m */,
+				A0F2928A1DE770A2000210C0 /* DataManager.h */,
+				A0F2928B1DE770A2000210C0 /* DataManager.m */,
 				A0D2605E1DE7447000E45F6D /* Main.storyboard */,
+				A0F292871DE75EAE000210C0 /* AddReceiptController.h */,
+				A0F292881DE75EAE000210C0 /* AddReceiptController.m */,
 				A0D260641DE7447000E45F6D /* Assets.xcassets */,
 				A0D260661DE7447000E45F6D /* LaunchScreen.storyboard */,
 				A0D260691DE7447000E45F6D /* Info.plist */,
@@ -155,7 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D2605D1DE7447000E45F6D /* ViewController.m in Sources */,
+				A0F2928C1DE770A2000210C0 /* DataManager.m in Sources */,
 				A0D2605A1DE7447000E45F6D /* AppDelegate.m in Sources */,
+				A0F292891DE75EAE000210C0 /* AddReceiptController.m in Sources */,
 				A0D260571DE7447000E45F6D /* main.m in Sources */,
 				A0D260631DE7447000E45F6D /* W4D4___Receipt__.xcdatamodeld in Sources */,
 			);
@@ -314,6 +326,7 @@
 				A0D2606E1DE7447000E45F6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
