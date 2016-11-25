@@ -12,6 +12,7 @@
 #import "Receipt+CoreDataClass.h"
 
 @interface AddReceiptController ()
+@property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionText;
 @property (weak, nonatomic) IBOutlet UITextField *amount;
@@ -53,7 +54,28 @@
 	Tag *tag = [[DataManager sharedInstance] fetchData:@"Tag"][indexPath.row];
 	cell.textLabel.textAlignment = NSTextAlignmentCenter;
 	cell.textLabel.text = tag.tagName;
+	
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	}
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	
+	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	}
 }
 
 - (IBAction)dismissAddReceipt:(UIButton *)sender {
@@ -69,6 +91,16 @@
 		receipt.note = self.descriptionText.text;
 		receipt.timeStamp = self.datePicker.date;
 		receipt.amount = [self.amount.text floatValue];
+		
+		
+		NSMutableArray *tags = [NSMutableArray new];
+		NSArray *indexPaths = [self.categoryTableView indexPathsForSelectedRows];
+		for (NSIndexPath *path in indexPaths) {
+			Tag *tag = [[DataManager sharedInstance] fetchData:@"Tag"][path.row];
+			[tags addObject:tag];
+		}
+		
+		receipt.tags = [NSSet setWithArray:tags];
 		
 		[[DataManager sharedInstance] saveContext];
 		[self dismissViewControllerAnimated:YES completion:nil];

@@ -14,6 +14,7 @@
 #define dataEntity @"Receipt"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -22,6 +23,10 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	[self.tableView reloadData];
 }
 
 
@@ -36,16 +41,23 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return [[DataManager sharedInstance] fetchData:dataEntity].count;
+	
+	//NSPredicate *predicate = [NSPredicate predicateWithFormat: @"amount > 25", @"receipt."];
+
+	return 1;//[[DataManager sharedInstance] fetchData:dataEntity withPredicate:predicate].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
 	
-	NSArray <Receipt*> *receiptData = [[DataManager sharedInstance] fetchData:dataEntity];
+	
+	Tag *tag = (Tag *)[[DataManager sharedInstance] fetchData:@"Tag"][indexPath.section];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"ALL tags.tagName LIKE[cd] %@", tag.tagName];
+
+	NSArray <Receipt*> *receiptData = [[DataManager sharedInstance] fetchData:dataEntity withPredicate:predicate];
 	
 	cell.textLabel.text = receiptData[indexPath.row].note;
-	
+
 	return cell;
 }
 

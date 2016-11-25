@@ -81,4 +81,19 @@
 	
 	return fetchedObjects;
 }
+
+-(NSArray *) fetchData:(NSString *)name withPredicate:(NSPredicate *)predicate{
+	
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:name
+											  inManagedObjectContext:self.persistentContainer.viewContext];
+	[fetchRequest setEntity:entity];
+	
+	NSError *error;
+	NSArray *fetchedObjects = [self.persistentContainer.viewContext executeFetchRequest:fetchRequest error:&error];
+	
+	fetchedObjects = [fetchedObjects filteredArrayUsingPredicate:predicate];
+	
+	return fetchedObjects;
+}
 @end

@@ -65,6 +65,9 @@
                             <constraint firstItem="p9h-QH-dwl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ojR-YU-uwK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="p9h-QH-dwl" id="8NT-0K-qp8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,6 +174,7 @@
                     </view>
                     <connections>
                         <outlet property="amount" destination="GhS-uJ-9OT" id="sam-EY-PTe"/>
+                        <outlet property="categoryTableView" destination="Slw-4D-3R2" id="zcT-UK-e9G"/>
                         <outlet property="datePicker" destination="18l-hr-htt" id="xNq-fr-tYP"/>
                         <outlet property="descriptionText" destination="LRU-B9-YqQ" id="D2X-SF-qzv"/>
                     </connections>
